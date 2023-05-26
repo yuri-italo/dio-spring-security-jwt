@@ -1,5 +1,7 @@
 package dev.yuri.dio.spring.security.jwt.security;
 
+import io.jsonwebtoken.*;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
