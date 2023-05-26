@@ -1,16 +1,24 @@
 package dev.yuri.dio.spring.security.jwt.security;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
+@ConfigurationProperties(prefix = "security.config")
 public class SecurityConfig {
+    private static String PREFIX;
+    private static String KEY;
+    private static Long EXPIRATION;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public void setPREFIX(String PREFIX) {
+        SecurityConfig.PREFIX = PREFIX;
+    }
+
+    public static void setKEY(String KEY) {
+        SecurityConfig.KEY = KEY;
+    }
+
+    public void setEXPIRATION(Long EXPIRATION) {
+        SecurityConfig.EXPIRATION = EXPIRATION;
     }
 }
-
